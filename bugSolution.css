@@ -1,0 +1,11 @@
+A better approach might involve using viewport units (`vw`) which are relative to the viewport width:
+
+```css
+.container {
+  width: calc(50vw + 100px);
+}
+```
+
+This makes the calculation more predictable, as `vw` is always relative to the viewport and does not change based on the parent's dynamic content.
+
+Alternatively, if you must use percentage-based widths and you can manage the sizing of the parent element, avoid the addition of fixed pixel amounts within the `calc()` function directly.  Instead, use independent sizing techniques on the parent to set its width so the percentages are calculated on a fixed or reliably predictable width.  Or consider media queries and other strategies depending on your design constraints.
