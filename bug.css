@@ -1,0 +1,11 @@
+The following CSS code snippet demonstrates an uncommon error related to the `calc()` function and percentage values:
+
+```css
+.container {
+  width: calc(50% + 100px);
+}
+```
+
+This seemingly simple calculation can lead to unexpected results, particularly when the `calc()` function interacts with percentage values that depend on the parent container's size.  The issue is that the `100px` addition is relative to the available parent width *after* the percentage calculation. In effect, you're adding pixels to a percentage of a size that is *itself* potentially changing.
+
+The problem is exacerbated if the parent container's width is dynamically determined, e.g., by the content within it.
